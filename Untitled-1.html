@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Xin Lỗi</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8e8c8;
+            font-family: 'Dancing Script', cursive;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+        }
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 180px;
+            background: #3498db;
+            border-radius: 10px;
+            border: 2px solid #1c6ea4;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 90px;
+            background: #2980b9;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            transition: transform 0.5s;
+        }
+        .container.open .flap {
+            transform: rotateX(180deg);
+        }
+        .letter {
+            position: absolute;
+            width: 260px;
+            height: 250px;
+            padding: 20px;
+            background: #fff;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            border: 2px solid #1c6ea4;
+            border-radius: 5px;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: top 0.5s ease-in-out, opacity 0.5s;
+            overflow: auto;
+        }
+        .container.open .letter {
+            top: -50px;
+            opacity: 1;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container" onclick="toggleLetter()">
+        <div class="envelope">
+            <div class="flap"></div>
+        </div>
+        <div class="letter">
+            <h2>Gửi chị yêu,</h2>
+            <p>Em biết rằng hôm qua em đã lỡ lời và làm chị buồn. Em thực sự xin lỗi vì điều đó.</p>
+            <p>Chị Trân cute xinh đẹp, làm ơn tha thứ cho em nhé. Em hứa sẽ cẩn thận hơn trong lời nói và hành động của mình.</p>
+            <p>Không có gì quan trọng với em hơn nụ cười của chị.</p>
+            <p>Hãy cho em cơ hội sửa sai nhé! ❤️</p>
+            <p class="signature">Mãi yêu,<br>Hotgirl Kế Sách</p>
+        </div>
+    </div>
+    <script>
+        function toggleLetter() {
+            document.querySelector('.container').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
